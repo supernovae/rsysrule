@@ -35,7 +35,7 @@ package { $rsysrule::package_name:
 
   service { 'rsyslog':
     ensure     => running,
-    require    => Package['$rsysrule::package_name'],
+    require    => Package[$rsysrule::package_name],
     enable     => true,
     hasstatus  => true,
     hasrestart => true,
