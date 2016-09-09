@@ -16,7 +16,7 @@
 #
 # @example
 #    class { 'rsysrule':
-#      servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
+#      package_name => 'rsyslog',
 #    }
 #
 # Authors
