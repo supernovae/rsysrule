@@ -1,28 +1,15 @@
 # Class: rsysrule
 # ===========================
 #
-# Full description of class rsysrule here.
+# Setup rsyslog rules
 #
 # Parameters
 # ----------
 #
-# Document parameters here.
+# Package Name
 #
-# * `sample parameter`
-# Explanation of what this parameter affects and what it defaults to.
-# e.g. "Specify one or more upstream ntp servers as an array."
-#
-# Variables
-# ----------
-#
-# Here you should define a list of variables that this module would require.
-#
-# * `sample variable`
-#  Explanation of how this variable affects the function of this class and if
-#  it has a default. e.g. "The parameter enc_ntp_servers must be set by the
-#  External Node Classifier as a comma separated list of hostnames." (Note,
-#  global variables should be avoided in favor of class parameters as
-#  of Puppet 2.6.)
+# * `package_name`
+# OS Package name for rsyslog package. Defaults to rsyslog
 #
 # Examples
 # --------
@@ -35,14 +22,23 @@
 # Authors
 # -------
 #
-# Author Name <author@domain.com>
+# Byron Miller <byronm@gmail.com>
 #
-# Copyright
-# ---------
 #
-# Copyright 2016 Your name here, unless otherwise noted.
-#
-class rsysrule {
+class rsysrule(
+    $package_name = 'rsyslog'
+) {
 
+package { $rsysrule::package_name: :
+    ensure => installed,
+    }
+
+  service { 'rsyslog':
+    ensure     => running,
+    require    => Package['$rsysrule::package_name'],
+    enable     => true,
+    hasstatus  => true,
+    hasrestart => true,
+  }
 
 }
