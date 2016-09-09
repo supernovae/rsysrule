@@ -1,0 +1,15 @@
+{
+  "name": "byron-rsysrule",
+  "version": "0.1.0",
+  "author": "byron",
+  "summary": "Add simple rules to rsyslog.d",
+  "license": "Apache-2.0",
+  "source": "Github",
+  "project_page": "Github",
+  "issues_url": "Github",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ],
+  "data_provider": null
+}
+
