@@ -29,7 +29,7 @@ class rsysrule(
     $package_name = 'rsyslog'
 ) {
 
-package { $rsysrule::package_name: :
+package { $rsysrule::package_name:
     ensure => installed,
     }
 
